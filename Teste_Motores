@@ -1,0 +1,36 @@
+#include <analogWrite.h>
+  #define pwmB 25
+  #define b1 33
+  #define b2 26
+  #define stby 27
+  #define a1 14
+  #define a2 12
+  #define pwmA 13
+  
+void setup() {
+  pinMode(pwmB, OUTPUT);
+  pinMode(b1, OUTPUT);
+  pinMode(b2, OUTPUT);
+  pinMode(stby, OUTPUT);
+  pinMode(a1, OUTPUT);
+  pinMode(a2, OUTPUT);
+  pinMode(pwmA, OUTPUT);
+  digitalWrite(stby,1);
+}
+
+void loop(){
+  digitalWrite(b1,1);
+  digitalWrite(b2,0);
+  digitalWrite(a1,1);
+  digitalWrite(a2,0);
+  analogWrite(pwmB, 100);
+  analogWrite(pwmA, 100);
+  delay(500);
+  digitalWrite(b1,0);
+  digitalWrite(b2,1);
+  digitalWrite(a1,0);
+  digitalWrite(a2,1);
+  analogWrite(pwmB, 100);
+  analogWrite(pwmA, 100);
+  delay(500);
+}
