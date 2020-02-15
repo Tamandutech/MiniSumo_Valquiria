@@ -1,3 +1,7 @@
+// link para olhar multi funcional
+
+
+
 #include <Wire.h></p>
 #define SENSOR_ADRS 0x40 // I2C address of GP2Y0E03
 #define DISTANCE_ADRS 0x5E // Data address of Distance Value // Functions to process only at power-on and reset
