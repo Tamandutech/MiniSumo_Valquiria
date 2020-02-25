@@ -1,0 +1,27 @@
+# include  <analogWrite.h>
+# define  sharpFE  39
+# define  sharpFD  34
+//# define  sharpE  35
+# define  sharpFC  36
+ void setup() {
+  
+  pinMode (sharpFC, INPUT);
+  pinMode (sharpFE, INPUT);
+  pinMode (sharpFD, INPUT);
+//  pinMode (sharpE, INPUT);
+  Serial. begin ( 9600 );
+  
+}
+ 
+ void loop() {
+  
+  if(analogRead(39) > 2000){
+    Serial.println("Aproximação pelo lado direito");
+    }else if(analogRead(34) > 2000){
+        Serial.println("Aproximação pelo centro");      
+      }else if(analogRead(36) > 2000){
+          Serial.println("Aproximação pela esquerda");
+        }
+    
+  delay(500);
+}
