@@ -1,5 +1,5 @@
 #include <analogWrite.h>
-#define lineC 2
+//#define lineC 2
 #define lineD 15
 #define lineE 4
 
@@ -19,7 +19,7 @@ int media10(int i){
 void loop() {
   Serial.print(media10(lineD));
   Serial.print(" ");
-  Serial.print(media10(lineC));
+  //Serial.print(media10(lineC));
   Serial.print(" ");
   Serial.println(media10(lineE));
   delay(500);
