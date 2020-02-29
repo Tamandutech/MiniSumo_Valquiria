@@ -11,13 +11,13 @@
 BluetoothSerial SerialBT;
 
 char BT = 'f';
-int tempo = 4900;
+int tempo = 4700;
 char estrategia = 'b';
 char lupi = '2';
 
   #define sharpFE 36
   #define sharpFD 39
-  //#define sharpFD 34
+  #define sharpD 35
 
   #define pwmB 25
   #define b1 33
@@ -42,7 +42,7 @@ void setup() {
   pinMode(pwmA, OUTPUT);
   pinMode(linhaE, INPUT);
   pinMode(linhaD, INPUT);
-  //pinMode(sharpE, INPUT);
+  pinMode(sharpD, INPUT);
   pinMode(sharpFE, INPUT);
   pinMode(sharpFD, INPUT);
   digitalWrite(stby,1);
@@ -103,10 +103,10 @@ void setup() {
       delay(500);
     break;
 
-    case 'b':  //curvao
+    case 'b':  //curvinha
       if(direc){
         esquerda(250,250);
-        delay(150);
+        delay(120);
         frente(250, 110);
         delay(1100);
       }
@@ -117,17 +117,50 @@ void setup() {
         delay(1000);
       }
       break;
+
+      
+      case 'c':  //curvao
+      if(direc){
+        esquerda(250,250);
+        delay(120);
+        frente(250, 140);
+        delay(1800);
+      }
+      else{
+        direita(250,250);
+        delay(120);
+        frente(140, 250);
+        delay(1800);
+      }
+      break;
+
+      case 'd':  //costas
+      if(direc){
+        esquerda(250,250);
+        delay(300);
+        frente(250, 110);
+        delay(800);
+      }
+      else{
+        direita(250,250);
+        delay(300);
+        frente(120, 250);
+        delay(800);
+      }
+      break;
+
     
   }
 }
  
 void loop() {
-
-  if(analogRead(sharpFD) > 1200 || analogRead(sharpFE) > 1200){
+  
+  if(analogRead(sharpFD) > 1000 || analogRead(sharpFE) > 1000){
         frente(250, 250);
     }else{
-      direita(100, 100);
+      direita(150, 150);
       }
+      
    if(analogRead(linhaD) < 70 || analogRead(linhaE) < 70){
       tras(200, 200);
       delay(200);
@@ -136,11 +169,7 @@ void loop() {
     }
       
   }
-  /*if(SerialBT.available()){
-      BT = SerialBT.read();
-      if(BT == 'S') digitalWrite(stby,0);
-  }*/
-
+ 
 
 
 
